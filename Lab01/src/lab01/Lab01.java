@@ -132,7 +132,7 @@ public class Lab01 {
 					System.exit(0);
 				}
 				System.out.println("Invalid input please try again.");
-				continue;
+				continue height;
 			}
 			
 		}
