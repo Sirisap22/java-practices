@@ -20,8 +20,8 @@ public class Lab03 {
 	public static void main(String[] args) {
 
 		//new PalindromicPrime().start();
-		new MergeLists().start();
-		//new ExploreMatrix().start();
+		//new MergeLists().start();
+		new ExploreMatrix().start();
 	}
 	
 }

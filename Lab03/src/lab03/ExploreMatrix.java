@@ -144,18 +144,29 @@ public class ExploreMatrix {
 			System.out.println("Rank one matrix doesn't have the superdiagonal");
 			return;
 		}
+		if (size == 2) {
+			System.out.println("All " + matrix[0][1] + "s on the superdiagonal");
+			return;
+		}
 		
-		for (int row = 0; row < size-1; row++) {
-			for (int column = row + 1; column < size-1; column++) {
-				if (matrix[row][column] != matrix[row][column+1] || (row > 0 && matrix[row][size-1] != matrix[row-1][size-1])) {
-					System.out.println("No same numbers on the superdiagonal");
-					return;
-				}
-			}
-			if (row > 0 && matrix[row][size-1] != matrix[row-1][size-1]) {
+//		for (int row = 0; row < size-1; row++) {
+//			for (int column = row + 1; column < size-1; column++) {
+//				if (matrix[row][column] != matrix[row][column+1] || (row > 0 && matrix[row][size-1] != matrix[row-1][size-1])) {
+//					System.out.println("No same numbers on the superdiagonal");
+//					return;
+//				}
+//			}
+//			if (row > 0 && matrix[row][size-1] != matrix[row-1][size-1]) {
+//				System.out.println("No same numbers on the superdiagonal");
+//				return;
+//			}
+//		}
+
+		for (int row = 0; row < size-2; row++) {
+			if (matrix[row][row+1] != matrix[row+1][row+2]) {
 				System.out.println("No same numbers on the superdiagonal");
-				return;
-			}
+					return;
+			}	
 		}
 		
 		System.out.println("All " + matrix[0][1] + "s on the superdiagonal");
@@ -189,15 +200,22 @@ public class ExploreMatrix {
 			return;
 		}
 		
-		for (int row = 2; row < size; row++) {
-			for (int column = 0; column < row - 1; column++) {
-				if (matrix[row][column] != matrix[row][column+1] || (matrix[row][0] != matrix[row-1][0])) {
-					System.out.println("No same numbers on the subdiagonal");
+//		for (int row = 2; row < size; row++) {
+//			for (int column = 0; column < row - 1; column++) {
+//				if (matrix[row][column] != matrix[row][column+1] || (matrix[row][0] != matrix[row-1][0])) {
+//					System.out.println("No same numbers on the subdiagonal");
+//					return;
+//				}
+//			}
+//			
+//		}
+		for (int row = 1; row < size-1; row++) {
+			if (matrix[row][row-1] != matrix[row+1][row]) {
+				System.out.println("No same numbers on the subdiagonal");
 					return;
-				}
-			}
-			
+			}	
 		}
+		
 		
 		System.out.println("All " + matrix[1][0] + "s on the subdiagonal");
 	}

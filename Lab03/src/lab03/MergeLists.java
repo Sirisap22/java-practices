@@ -13,8 +13,17 @@ public class MergeLists {
 	public static void start() {
 		String[] strList1;
 		String[] strList2;
-		int[] intList1;
-		int[] intList2;
+		int[] intList1 = {};
+		int[] intList2 = {};
+		
+//		for (int i = 0; i < 5; i++) {
+//			intList1 = new int[5];
+//			intList1[i] = (int)(Math.random()*Integer.MAX_VALUE);
+//		}
+//		for (int j = 0; j < 5; j++) {
+//			intList2 = new int[5];
+//			intList2[j] = (int)(Math.random()*Integer.MAX_VALUE);
+//		}
 		
 		list1:
 		while(true) {
@@ -31,6 +40,7 @@ public class MergeLists {
 			}
 		}
 		
+		
 		list2:
 		while(true) {
 			System.out.print("Enter list2 : ");
@@ -45,6 +55,9 @@ public class MergeLists {
 				continue list2;
 			}
 		}
+		
+		Arrays.sort(intList1);
+		Arrays.sort(intList2);
 
 		int[] mergedList = mergeSortedArrays(intList1, intList2);
 		
