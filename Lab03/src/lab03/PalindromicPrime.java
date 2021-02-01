@@ -14,7 +14,7 @@ public class PalindromicPrime {
 		int numbersOfPalindromicPrime = 0;
 		int numbersPerLine = 0;
 		int n = 0;
-		while (numbersOfPalindromicPrime < 100) {
+		while (numbersOfPalindromicPrime < 1000) {
 			if (isPrime(n) && isPalindrome(n)) {
 				System.out.print(n + "\t");
 				numbersOfPalindromicPrime++;

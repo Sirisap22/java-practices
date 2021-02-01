@@ -32,21 +32,7 @@ public class ExploreMatrix {
 		}
 		
 		int[][] matrix = randomMatrix(size);
-//		int[][] matrix = {
-//			{1, 0},
-//			{1, 1}
-//		};
-//		int[][] matrix = {
-//			{1, 1, 1},
-//			{0, 1, 0},
-//			{0, 0, 0},
-//		};
-//		int[][] matrix = {
-//			{0, 1, 1, 1},
-//			{0, 0, 0, 0},
-//			{0, 1, 0, 0},
-//			{1, 1, 1, 1}
-//		};
+
 		printMatrix(matrix);
 		
 		checkRowAllSame(matrix);
@@ -82,7 +68,9 @@ public class ExploreMatrix {
 	
 	private static void checkRowAllSame(int[][] matrix) {
 		int size = matrix.length;
+		
 		boolean isSame = false;
+		
 		if (size == 1) {
 			System.out.println("All " + matrix[0][0] + "s on row 0");
 			return;
@@ -149,18 +137,6 @@ public class ExploreMatrix {
 			return;
 		}
 		
-//		for (int row = 0; row < size-1; row++) {
-//			for (int column = row + 1; column < size-1; column++) {
-//				if (matrix[row][column] != matrix[row][column+1] || (row > 0 && matrix[row][size-1] != matrix[row-1][size-1])) {
-//					System.out.println("No same numbers on the superdiagonal");
-//					return;
-//				}
-//			}
-//			if (row > 0 && matrix[row][size-1] != matrix[row-1][size-1]) {
-//				System.out.println("No same numbers on the superdiagonal");
-//				return;
-//			}
-//		}
 
 		for (int row = 0; row < size-2; row++) {
 			if (matrix[row][row+1] != matrix[row+1][row+2]) {
@@ -200,15 +176,6 @@ public class ExploreMatrix {
 			return;
 		}
 		
-//		for (int row = 2; row < size; row++) {
-//			for (int column = 0; column < row - 1; column++) {
-//				if (matrix[row][column] != matrix[row][column+1] || (matrix[row][0] != matrix[row-1][0])) {
-//					System.out.println("No same numbers on the subdiagonal");
-//					return;
-//				}
-//			}
-//			
-//		}
 		for (int row = 1; row < size-1; row++) {
 			if (matrix[row][row-1] != matrix[row+1][row]) {
 				System.out.println("No same numbers on the subdiagonal");
