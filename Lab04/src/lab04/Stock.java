@@ -74,10 +74,10 @@ public class Stock {
 	public double getChangePercent() {
 		// check if both prices is initialized
 		if (this.currentPrice == -1.0) {
-			throw new IllegalStateException("Current price haven't initialzed.");
+			throw new IllegalStateException("Current price haven't initialzed yet.");
 		}
 		else if (this.previousClosingPrice == -1.0) {
-			throw new IllegalStateException("Previous closing price haven't initialzed.");
+			throw new IllegalStateException("Previous closing price haven't initialzed yet.");
 		}
 		
 		double changedPercent = ((this.currentPrice - this.previousClosingPrice)/this.previousClosingPrice) * 100.0;

@@ -6,6 +6,7 @@
 package lab04;
 import java.util.Date;
 import java.util.Random;
+import java.math.BigInteger;
 /**
  *
  * @author ACER PREDATOR
@@ -29,14 +30,14 @@ public class StopWatch {
 		System.out.println("Sorting stopwatch stoped.");
 		System.out.printf("The sort time is %d milliseconds. \n", watch.getElapsedTime());
 		
-		System.out.println("Creating a 100 PalindromePrime...");
+		System.out.println("Creating a 1000 PalindromPrime...");
 		watch.start();
-		long[] palindromePrime = _palindromePrime(100);
+		long[] palindromePrime = _palindromePrime(1000);
 		watch.stop();
 		_printArray(palindromePrime);
-		System.out.println("PalindromePrime created.");
-		System.out.println("The palindromePrime stopwatch stoped.");
-		System.out.printf("The palindromePrime time is %d milliseconds.", watch.getElapsedTime());
+		System.out.println("PalindromPrime created.");
+		System.out.println("The palindromPrime stopwatch stoped.");
+		System.out.printf("The palindromPrime time is %d milliseconds.", watch.getElapsedTime());
 		
 	}
 	
@@ -105,7 +106,7 @@ public class StopWatch {
 		int numPerLine = 0;
 		for (int i = 0; i < array.length; ++i) {
 			++numPerLine;
-			System.out.printf("%d ", array[i]);
+			System.out.print(array[i] + " ");
 			if(numPerLine >= 10) {
 				numPerLine = 0;
 				System.out.println();
@@ -118,7 +119,7 @@ public class StopWatch {
 		long n = 0;
 		int index = 0;
 		while (index < size) {
-			if (_isPrime(n) && _isPalindrome(n)) {
+			if (_isPrime(new BigInteger(Long.toString(n))) && _isPalindrome(new BigInteger(Long.toString(n)))) {
 				array[index] = n;
 				++index;
 			}
@@ -128,34 +129,14 @@ public class StopWatch {
 		return array;
 	}
 	
-	private static boolean _isPrime(long n) {
-		// Corner cases 
-        if (n <= 1) 
-            return false; 
-        if (n <= 3) 
-            return true; 
-  
-        // This is checked so that we can skip 
-        // middle five numbers in below loop 
-        if (n % 2 == 0 || n % 3 == 0) 
-            return false; 
-  
-        for (long i = 5; i * i <= n; i = i + 6) 
-            if (n % i == 0 || n % (i + 2) == 0) 
-                return false; 
-  
-        return true; 
+	private static boolean _isPrime(BigInteger n) {
+		return n.isProbablePrime(1);
 	}
 	
-	private static boolean _isPalindrome(long n){
-		long num = n;
-		long reversed = 0;
-		StringBuilder sb = new StringBuilder();
-		sb.append(num);
-		sb = sb.reverse();
-		String intermediateString = sb.toString();
-		reversed = Long.parseLong(intermediateString);
-		
-		return n == reversed;
+	private static boolean _isPalindrome(BigInteger n){
+		String s = n.toString(); 
+        StringBuilder sb = new StringBuilder(s);
+		BigInteger reversed = new BigInteger(sb.reverse().toString());
+		return n.compareTo(reversed) == 0;
 	}
 }

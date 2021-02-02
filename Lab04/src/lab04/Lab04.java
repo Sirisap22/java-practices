@@ -18,9 +18,9 @@ public class Lab04 {
 	 */
 	public static void main(String[] args) {
 		// TODO code application logic here
-		//Stock.test();
+		Stock.test();
 		//GreCal.start();
-		StopWatch.test();
+		//StopWatch.test();
 	}
 	
 }
