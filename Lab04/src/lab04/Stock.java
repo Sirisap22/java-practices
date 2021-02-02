@@ -16,31 +16,11 @@ public class Stock {
 	private double previousClosingPrice;
 	private double currentPrice;
 	
-	public static void test() {
-		Stock oracle = new Stock("ORCL", "Oracle Corporation");
-		oracle.setPreviousClosingPrice(34.5);
-		oracle.setCurrentPrice(34.35);
-		
-		System.out.println("Symbol: " + oracle.getSymbol());
-		System.out.println("Name: " + oracle.getName());
-		System.out.println("Previous Closing Price: " + oracle.getPreviousClosingPrice());
-		System.out.println("Current Price: " + oracle.getCurrentPrice());
-		System.out.println("Price Change: " + oracle.getChangePercent() + "%");
-	}
-	
 	Stock(String symbol, String name) {
 		this.symbol = symbol;
 		this.name = name;
 		this.previousClosingPrice = -1.0;
 		this.currentPrice = -1.0;
-	}
-	
-	private boolean isValidPrice(double price) {
-		if (price <= 0.0 || price > Double.MAX_VALUE) {
-			return false;
-		}
-		
-		return true;
 	}
 	
 	public String getSymbol() {
@@ -82,6 +62,14 @@ public class Stock {
 		
 		double changedPercent = ((this.currentPrice - this.previousClosingPrice)/this.previousClosingPrice) * 100.0;
 		return changedPercent;
+	}
+	
+	private boolean isValidPrice(double price) {
+		if (price <= 0.0 || price > Double.MAX_VALUE) {
+			return false;
+		}
+		
+		return true;
 	}
 	
 	
