@@ -51,7 +51,7 @@ public class TestRegularPolygon {
 	}
 	
 	private static int selectModeMenu() {
-		System.out.println("[1] no-constructor");
+		System.out.println("[1] no-arg constructor");
 		System.out.println("[2] using n and side constructor");
 		System.out.println("[3] using n, side, x and y constructor");
 		System.out.println("[4] exit");
