@@ -16,6 +16,11 @@ public class Stock {
 	private double previousClosingPrice;
 	private double currentPrice;
 	
+	Stock() {
+		this.symbol = "";
+		this.name = "";
+	}
+	
 	Stock(String symbol, String name) {
 		this.symbol = symbol;
 		this.name = name;

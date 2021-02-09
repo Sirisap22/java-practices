@@ -15,16 +15,16 @@ import lab04.StopWatch;
  *
  * @author ACER PREDATOR
  */
-public class Lab04 {
+public class Test {
 
 	/**
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
 
-		testStock();
+		//testStock();
 		testGregorianCalendar();
-		testStopWatch();
+		//testStopWatch();
 	}
 
 	// testing stock.
@@ -49,7 +49,8 @@ public class Lab04 {
 		System.out.println("-------------");
 
 		long oneDayMillis = _daysToMillis(1);
-		calendar.setTimeInMillis((long) calendar.getTimeInMillis() + oneDayMillis);
+		calendar.setTimeInMillis(calendar.getTimeInMillis() + oneDayMillis);
+		System.out.println(calendar.getTime());
 
 		System.out.println("After specified the elapsed time of one day after current day");
 		_printCalendar(calendar);
@@ -63,8 +64,8 @@ public class Lab04 {
 		System.out.printf("Day of week is %d\n", calendar.get(GregorianCalendar.DAY_OF_WEEK));
 	}
 
-	private static long _daysToMillis(int days) {
-		return (long) (days * 24 * 60 * 60 * 1000);
+	private static long _daysToMillis(long days) {
+		return (days * 24L * 60L * 60L * 1000L);
 	}
 
 	// testing stopwatch.
@@ -83,9 +84,9 @@ public class Lab04 {
 		System.out.println("Sorting stopwatch stoped.");
 		System.out.printf("The sort time is %d milliseconds. \n", watch.getElapsedTime());
 
-		System.out.println("Creating a 1000 PalindromPrime...");
+		System.out.println("Creating a 100 PalindromPrime...");
 		watch.start();
-		long[] palindromePrime = _palindromePrime(1000);
+		long[] palindromePrime = _palindromePrime(100);
 		watch.stop();
 		_printArray(palindromePrime);
 		System.out.println("PalindromPrime created.");
@@ -97,16 +98,12 @@ public class Lab04 {
 	private static void _selectionSort(double arr[]) {
 		int n = arr.length;
 
-		// One by one move boundary of unsorted subarray
 		for (int i = 0; i < n - 1; i++) {
-			// Find the minimum element in unsorted array
 			int minIndex = i;
 			for (int j = i + 1; j < n; j++)
 				if (arr[j] < arr[minIndex])
 					minIndex = j;
 
-			// Swap the found minimum element with the first
-			// element
 			double temp = arr[minIndex];
 			arr[minIndex] = arr[i];
 			arr[i] = temp;
